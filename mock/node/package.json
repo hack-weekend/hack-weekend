@@ -1,0 +1,17 @@
+{
+  "name": "hack-weekend-mock",
+  "version": "0.0.1",
+  "description": "Hack weekend mock",
+  "main":"app.js",
+  "readme": "README.md",
+  "author": {
+    "name": "Sean Davis",
+    "url": "https://github.com/hack-weekend"
+  },
+  "dependencies": {
+    "express":"4.13.3",
+    "body-parser":"1.14.1",
+    "amokjs":"1.0.1"
+  },
+  "license": "MIT"
+}

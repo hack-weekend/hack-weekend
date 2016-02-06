@@ -1,0 +1,35 @@
+{
+    "success": true,
+    "recipes": [{
+        "name": "Spaghetti Bolognaise",
+        "author": "Oli Smith",
+        "subtitle": "Momma's Recipe",
+        "imageURL": "http://httpbin.org/image/png",
+        "servings": 4,
+        "prepTime": "15",
+        "overallTime": "15",
+        "difficulty": 1,
+        "likes": 1,
+        "ingredients": [{
+            "name": "Minced Beef",
+            "amount": {
+                "units": "g",
+                "qty": 500
+            }
+        }, {
+            "name": "Onions",
+            "amount": {
+                "units": "g",
+                "qty": 200
+            }
+        }],
+        "instructions": [
+            "Chop the onions",
+            "Add the beef"
+        ],
+        "tags": [
+            "gluten-free",
+            "italian"
+        ]
+    }]
+}
