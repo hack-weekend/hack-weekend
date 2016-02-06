@@ -1,0 +1,11 @@
+{
+    "members": [{
+        "name": "Mark",
+        "preferences": ["vegetarian", "high-protein"]
+    }],
+    "meals": [{
+        "date": "01/01/16",
+        "recipeName": 22,
+        "assigned": "Mark"
+    }]
+}
