@@ -1,34 +1,34 @@
 <ion-view title="Add meal to Planner">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <form class="list">
-            <label class="item item-select" name="Assign to chef dropdown">
-                <span class="input-label">Who is cooking?</span>
-                <select>
-                    <option>Me</option>
-                    <option>Bob</option>
-                    <option>Sally</option>
-                    <option>Ibrahim</option>
-                </select>
-            </label>
-        </form>
+
+        <div class="list">
+          <label class="item item-input item-select">
+            <div class="input-label">
+              Who is cooking?
+            </div>
+            <select ng-options="m as m.name for m in members" ng-model="assigned"></select>
+          </label>
+        </div>
+
         <div>
             <p>Select a day:</p>
         </div>
-        <div class="button-bar">
-            <button class="button button-stable button-block button-small icon-left ion-android-arrow-back">Previous week</button>
-            <button class="button button-stable button-block button-small">This week</button>
-            <button class="button button-stable button-block button-small icon-right ion-android-arrow-forward">Next week</button>
+
+        <ion-list>
+            <div collection-repeat="day in days">
+                <ion-item ng-class="{'active': selected === day}" ng-click="selectDay(day)">
+                    <p>{{day.date}} {{day.meal.assigned}} {{day.meal.recipeName}}</p>
+                </ion-item>
+            </div>
+        </ion-list>
+
+        <div style="color:red;" ng-show="error == 'member_not_selected'">
+            Please select who's cooking
         </div>
-        <div class="button-bar">
-            <button class="button button-stable button-block ">Mon 1st</button>
-            <button class="button button-stable button-block ">Tue 2nd</button>
-            <button class="button button-stable button-block ">Wed 3rd</button>
+        <div style="color:red;" ng-show="error == 'day_not_selected'">
+            Please select a day
         </div>
-        <div class="button-bar">
-            <button class="button button-stable button-block ">Thur 4th</button>
-            <button class="button button-stable button-block ">Fri 5th</button>
-            <button class="button button-stable button-block ">Sat 6th</button>
-        </div>
-        <a ui-sref="tabsController.mealPlanner" class="button button-stable button-block ">Confirm</a>
+
+        <a ng-click="addMeal(assigned)" class="button button-stable button-block">Confirm</a>
     </ion-content>
 </ion-view>

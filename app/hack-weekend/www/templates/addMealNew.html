@@ -1,0 +1,29 @@
+<ion-view title="Add meal to Planner">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <form class="list">
+            <label class="item item-select" name="Assign to chef dropdown">
+                <span class="input-label">Who is cooking?</span>
+                <select>
+                    <option>Me</option>
+                    <option>Bob</option>
+                    <option>Sally</option>
+                    <option>Ibrahim</option>
+                </select>
+            </label>
+        </form>
+        <div collection-repeat="day in days">
+            <ion-list>
+                <ion-item>
+
+                <div style="text-align:center;">
+                    <img src="{{day.recipeUrl}}" width="25px" height="25px">
+                </div>
+                <!-- {{day.meal.name}} - {{day.meal.assignee}} -->
+                {{day.dateString}} {{day.recipeName}} {{day.assignee}}
+                </ion-item>
+            </ion-list>
+        </div>
+
+        <a ui-sref="tabsController.mealPlanner" class="button button-stable button-block ">Confirm</a>
+    </ion-content>
+</ion-view>

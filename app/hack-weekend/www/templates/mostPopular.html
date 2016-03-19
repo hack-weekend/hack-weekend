@@ -1,24 +1,19 @@
 <ion-view title="Most Popular">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <a style="display:inline-block;" ui-sref="spaghettiBolognese">
-            <div style="text-align:center;">
-                <img src="img/nuOmXPEuQ2eNRjvIWLSD_bolognese.jpg" width="100%" height="auto">
-            </div>
-        </a>
-        <ion-list>
-            <ion-item ui-sref="spaghettiBolognese">Spaghetti Bolognese</ion-item>
-        </ion-list>
-        <div style="text-align:center;">
-            <img src="img/IHuR2rrqQ4OZDuWUTMKi_chiken-tikka-masala_0.png.jpg" width="100%" height="auto">
+        <div class="button-bar">
+            <a ui-sref="tabsController.browseMeals" class="button button-stable button-block ">Back to Browse</a>
         </div>
-        <ion-list>
-            <ion-item>Chicken Tikka Masala</ion-item>
-        </ion-list>
-        <div style="text-align:center;">
-            <img src="img/UyLd5LxRTpq0wrANeBsx_Mexican Jalapeno 38 Coriander Fajitas.jpg" width="100%" height="auto">
+        <div collection-repeat="meal in recipes">
+            <ion-list>
+                <ion-item>
+                    <div style="text-align:center;">
+                        <a style="display:inline-block;" ui-sref="mealDetail({mealId:meal._id})">
+                            <img src="{{meal.imageURL}}" width="100%" height="250px">
+                        </a>
+                    </div>
+                    {{meal.name}}
+                </ion-item>
+            </ion-list>
         </div>
-        <ion-list>
-            <ion-item>Fajitas</ion-item>
-        </ion-list>
     </ion-content>
 </ion-view>

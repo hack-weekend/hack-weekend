@@ -1,0 +1,56 @@
+<ion-view title="{{recipe.name}}">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <div style="text-align:center;">
+            <img src="{{recipe.imageURL}}" width="100%" height="auto">
+        </div>
+        <form class="list">
+            <label class="item item-input" name="Meal Title">
+                <span class="input-label">{{recipe.name}}</span>
+            </label>
+        </form>
+        <a ng-click="addToPlannerInit(servings)" class="button button-stable button-block ">Add to Planner</a>
+        <form class="list">
+            <label class="item item-select">
+                <span class="input-label">Servings</span>
+                <select ng-model="servings" ng-change="resetError()">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                </select>
+            </label>
+        </form>
+        <div style="color:red;" ng-show="error == 'servings_missing'">
+            <p>Please select number of servings</p>
+        </div>
+        <div>
+            <p>{{servings}} Prep time: 20 min. Total time: 30 min</p>
+        </div>
+        <div class="button-bar">
+            <a class="button button-small button-block" ng-click="setShowIngredients(true)" ng-class="{'active': isShowingIngredients()}">Ingredients</a>
+            <a class="button button-small button-block" ng-click="setShowIngredients(false)" ng-class="{'active': !isShowingIngredients()}">Directions</a>
+        </div>
+        <ion-scroll ng-show="isShowingIngredients()" direction="y" style="height: 20vh">
+            <ion-list>
+                <div collection-repeat="ingredient in recipe.ingredients">
+                    <ion-item>
+                        <p>{{ingredient.name}}</p>
+                    </ion-item>
+                </div>
+            </ion-list>
+        </ion-scroll>
+        <ion-scroll ng-show="!isShowingIngredients()" direction="y" style="height: 20vh">
+            <ion-list>
+                <div collection-repeat="step in recipe.steps">
+                    <ion-item>
+                        <p>{{step}}</p>
+                    </ion-item>
+                </div>
+            </ion-list>
+        </ion-scroll>
+    </ion-content>
+</ion-view>
